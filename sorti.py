@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Iterable
 from typing import Set
 
+import pkg_resources
 from black import find_project_root
 from black import gen_python_files_in_dir
 from black import Report
@@ -15,11 +16,11 @@ EXCLUDES = re.compile(
 INCLUDES = re.compile(r"\.py$")
 
 
-def get_source_files(filenames: Iterable[str]) -> Iterable[Path]:
+def get_source_files(paths: Iterable[str]) -> Iterable[Path]:
     report = Report()
-    root = find_project_root((f for f in filenames))
+    root = find_project_root((f for f in paths))
     sources: Set[Path] = set()
-    for filename in filenames:
+    for filename in paths:
         path = Path(filename)
         if path.is_dir():
             sources.update(
@@ -34,26 +35,33 @@ def get_source_files(filenames: Iterable[str]) -> Iterable[Path]:
         elif path.is_file():
             sources.add(path)
         else:
-            print(f'Error: invalid path: {filenames}')
+            print(f"Error: invalid path: {path}")
             exit(1)
     return sources
 
 
+def get_version() -> str:
+    return pkg_resources.require("sorti")[0].version
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("sources", nargs="*")
+    parser.add_argument("source", nargs="*")
     parser.add_argument(
         "--check",
         action="store_true",
         help="Check if sorti would like to make changes.",
     )
+    parser.add_argument(
+        "--version", action="version", version=f"%(prog)s {get_version()}"
+    )
     args = parser.parse_args()
 
-    if not args.sources:
+    if not args.source:
         print("No sources given, doing nothing.")
         return 0
 
-    sources = tuple(args.sources)
+    sources = tuple(args.source)
     num_would_change = 0
 
     for path in get_source_files(sources):

@@ -8,6 +8,26 @@ An opinionated CLI for [asottile/reorder_python_imports].
 pip install sorti
 ```
 
+## Usage
+
+```bash
+sorti [-h] [--check] [--version] [source [source ...]]
+```
+
+### Examples
+
+Sorting imports in a single file
+
+```bash
+sorti my/file.py
+```
+
+Checking if any files in a directory need sorting
+
+```bash
+sorti --check my/directory
+```
+
 ## Why?
 
 This package makes the features of reorder_python_imports fit into my workflow.
