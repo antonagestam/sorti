@@ -45,7 +45,9 @@ def get_version() -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Sorts imports in Python 3.7+ source files."
+    )
     parser.add_argument("source", nargs="*")
     parser.add_argument(
         "--check",
