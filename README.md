@@ -55,6 +55,6 @@ moment that is 3.7.
 [python/black]: https://github.com/python/black
 
 The name sorti which means exit in Swedish seemed fitting since the divergence
-of opinions that lead to its creation was about exit codes. In Old Norse it
-means black cloud, which also seems appropriate since it uses parts of
-python/black.
+of opinions that lead to its creation was about exit codes, it's also a play on
+the popular import sorter isort. In Old Norse it means black cloud, which also
+seems appropriate since it uses parts of black.
