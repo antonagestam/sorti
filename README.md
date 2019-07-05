@@ -5,7 +5,7 @@ An opinionated CLI for [asottile/reorder_python_imports].
 ## Installation
 
 ```bash
-pip install reorder-python-imports
+pip install sorti
 ```
 
 ## Why?
