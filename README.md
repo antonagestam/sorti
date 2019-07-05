@@ -14,10 +14,11 @@ This package makes the features of reorder_python_imports fit into my workflow.
 I think the original project is awesome, but the CLI does not work the way I
 would like it to.
 
-My opinions diverge from asottile's on these two issues.
+My opinions diverge from asottile's on these issues.
 
 - https://github.com/asottile/reorder_python_imports/issues/45
-- https://github.com/asottile/reorder_python_imports/issues/74 
+- https://github.com/asottile/reorder_python_imports/issues/74
+- https://github.com/asottile/reorder_python_imports/pull/76
 
 So, `sorti` will support a much narrower use case than the original project. 
 The command has one flag: `--check`, which will make the command output the
