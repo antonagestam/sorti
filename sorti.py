@@ -32,7 +32,7 @@ def main() -> int:
             num_would_change += 1
             continue
 
-        print("Reordering imports in {}".format(filename))
+        print(f"Reordering imports in {filename}")
         with open(filename, "w") as f:
             f.write(new_contents)
 
