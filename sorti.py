@@ -7,6 +7,7 @@ from typing import Set
 import pkg_resources
 from black import find_project_root
 from black import gen_python_files_in_dir
+from black import get_gitignore
 from black import Report
 from reorder_python_imports import fix_file_contents
 
@@ -30,6 +31,7 @@ def get_source_files(paths: Iterable[str]) -> Iterable[Path]:
                     include=INCLUDES,
                     exclude=EXCLUDES,
                     report=report,
+                    gitignore=get_gitignore(root),
                 )
             )
         elif path.is_file():
